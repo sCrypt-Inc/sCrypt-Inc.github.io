@@ -1,0 +1,97 @@
+body, html {
+    background-color: #1A123D;
+    font-family: Helvetica Neue, Helvetica;
+}
+
+p,
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+strong,
+em,
+h6 {
+    color: white;
+}
+
+.title, .subtitle {
+    color: white;
+}
+
+.site-wrapper {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.header {
+    background: #382A5D url("/static/img/header.png") no-repeat bottom left;
+    height: 600px;
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+    padding: 10px;
+}
+
+.header .top-bar {
+    margin-bottom: 30px;
+}
+
+.header .logo {
+}
+
+.header .code-demo {
+    background: url("/static/img/code-sample1.png") top left;
+    height: 629px;
+    float: right;
+    width: 593px;
+}
+
+
+.header .title {
+    text-align: center;
+    font-size: 41px;
+}
+
+.header .subtitle {
+    text-align: center;
+}
+
+.content-wrapper .subtitle {
+    color: #3F385D;
+    font-size: 25px;
+}
+
+.content-wrapper {
+    background: #FAFAFA;
+    margin: 0px;
+    padding: 0px;
+    min-height: 500px;
+}
+
+.footer {
+    margin-top: 0px;
+    background: #382A5D;
+    color: white;
+    padding: 0px;
+    min-height: 100px;
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+}
+
+@media(min-width: 768px) {
+    .header .title {
+        font-size: 57px;
+    }
+
+    .header .subtitle {
+        font-size: 32px;
+    }
+
+    .header .code-demo {
+        right: 150px;
+        top: 137px;
+        position: absolute;
+    }
+
+}
