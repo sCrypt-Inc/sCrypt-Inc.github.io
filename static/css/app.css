@@ -29,8 +29,6 @@ h6 {
 .header {
     background: #382A5D url("/static/img/header.png") no-repeat bottom left;
     height: 600px;
-    border-top-left-radius: 13px;
-    border-top-right-radius: 13px;
     padding: 10px;
 }
 
@@ -89,8 +87,6 @@ h6 {
     color: white;
     padding: 0px;
     min-height: 100px;
-    border-bottom-left-radius: 13px;
-    border-bottom-right-radius: 13px;
 }
 
 .code-demo-mobile {
@@ -106,6 +102,15 @@ h6 {
         margin-bottom: 20px;
     }
 
+    .header {
+        border-top-left-radius: 13px;
+        border-top-right-radius: 13px;
+    }
+
+    .footer {
+        border-bottom-left-radius: 13px;
+        border-bottom-right-radius: 13px;
+    }
 }
 
 @media(max-width: 915px) {
