@@ -45,13 +45,9 @@ h6 {
     background: url("/static/img/code-sample1.png") no-repeat;
     height: 629px;
     right: 0px;
-    top: -425px;
+    top: -450px;
     position: absolute;
     width: 593px;
-}
-
-.code-demo img {
-    display: none;
 }
 
 .header .title {
@@ -67,12 +63,14 @@ h6 {
 .content-wrapper .subtitle {
     color: #3F385D;
     font-size: 25px;
+    margin-top: 20px;
+    text-align: center;
 }
 
 .content-wrapper {
     background: #FAFAFA;
     margin: 0px;
-    padding: 0px;
+    padding: 1px;
     min-height: 500px;
     position: relative;
 }
@@ -110,7 +108,12 @@ h6 {
     }
 
     .code-demo {
-        top: -450px;
+        top: -405px;
+    }
+
+    .content-wrapper .subtitle {
+        margin-top: 100px;
+
     }
 }
 
@@ -126,7 +129,7 @@ h6 {
     .code-demo {
         background: none;
         width: 100%;
-        margin-top: 48px;
+        margin-top: 8px;
     }
 
     .code-demo img {
