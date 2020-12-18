@@ -23,6 +23,7 @@ h6 {
 .site-wrapper {
     max-width: 960px;
     margin: 0 auto;
+    overflow: hidden;
 }
 
 .header {
@@ -40,21 +41,27 @@ h6 {
 .header .logo {
 }
 
-.header .code-demo {
-    background: url("/static/img/code-sample1.png") top left;
+.code-demo {
+    background: url("/static/img/code-sample1.png") no-repeat;
     height: 629px;
-    float: right;
+    right: 0px;
+    top: -425px;
+    position: absolute;
     width: 593px;
 }
 
+.code-demo img {
+    display: none;
+}
 
 .header .title {
     text-align: center;
-    font-size: 41px;
+    font-size: 57px;
 }
 
 .header .subtitle {
     text-align: center;
+    font-size: 32px;
 }
 
 .content-wrapper .subtitle {
@@ -67,6 +74,7 @@ h6 {
     margin: 0px;
     padding: 0px;
     min-height: 500px;
+    position: relative;
 }
 
 .footer {
@@ -79,19 +87,69 @@ h6 {
     border-bottom-right-radius: 13px;
 }
 
-@media(min-width: 768px) {
+/*
+@media(min-width: 1024px) {
     .header .title {
-        font-size: 57px;
+        font-size: 53px;
     }
 
     .header .subtitle {
         font-size: 32px;
     }
 
-    .header .code-demo {
-        right: 150px;
-        top: 137px;
-        position: absolute;
+}
+*/
+
+@media(max-width: 900px) {
+    .header .title {
+        font-size: 48px;
     }
 
+    .header .subtitle {
+        font-size: 27px;
+    }
+
+    .code-demo {
+        top: -450px;
+    }
+}
+
+@media(max-width: 767px) {
+    .header .title {
+        font-size: 45px;
+    }
+
+    .header .subtitle {
+        font-size: 25px;
+    }
+
+    .code-demo {
+        background: none;
+        width: 100%;
+        margin-top: 48px;
+    }
+
+    .code-demo img {
+        display: block;
+    }
+}
+
+@media(max-width: 450px) {
+    .header .title {
+        font-size: 35px;
+    }
+
+    .header .subtitle {
+        font-size: 18px;
+    }
+
+    .code-demo {
+        padding: 1px;
+    }
+
+    .code-demo img {
+        margin-top: 35px;
+        transform: scale(1.4);
+        overflow: hidden;
+    }
 }
