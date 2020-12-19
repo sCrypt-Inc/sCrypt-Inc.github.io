@@ -67,7 +67,7 @@ h6 {
     text-align: center;
 }
 
-.cta .title {
+.content-wrapper .title {
     color: #645D7D;
     max-width: 600px;
     font-size: 31px;
@@ -183,6 +183,10 @@ h6 {
 .about p {
     color: #89859D;
     margin-bottom: 15px;
+}
+
+.examples { 
+    text-align: center;
 }
 
 
