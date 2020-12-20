@@ -10,6 +10,7 @@ function didClickBuild(link) {
 
     const imageNode = document.querySelector(".examples img.screenshot");
     const screenshotLink = document.querySelector(".examples .screenshot-link");
+    const seeCodeNode = document.querySelector(".examples .see-code");
 
     const oldActive = document.querySelector(".examples a.active");
     if (oldActive) {
@@ -20,6 +21,8 @@ function didClickBuild(link) {
     imageNode.src = filepath;
 
     screenshotLink.href = link.href;
+    seeCodeNode.href = link.href;
+    seeCodeNode.innerHTML = "See " + link.innerHTML + " code";
 
     return false;
 }

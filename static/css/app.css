@@ -88,6 +88,7 @@ h6 {
 
 .cta {
     text-align: center;
+    margin: 100px 0;
 }
 
 .cta .button {
@@ -174,7 +175,7 @@ h6 {
 .about {
     background: #F8F7FD;
     max-width: 600px;
-    margin: 60px auto;
+    margin: 120px auto;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 34px 0px rgba(0, 0, 0, 0.1);
@@ -188,6 +189,7 @@ h6 {
 .examples { 
     text-align: center;
     position: relative;
+    margin: 120px auto;
 }
 
 .examples .controller { 
@@ -209,7 +211,8 @@ h6 {
 .examples .wrapper {
     max-height: 400px;
     overflow: hidden;
-    border-bottom: 1px solid lightgrey;
+    /*border-bottom: 1px solid lightgrey;*/
+    background: url("/static/img/divider.png") no-repeat bottom center;
 }
 
 .examples .wrapper img {
@@ -226,7 +229,15 @@ h6 {
 }
 
 .examples ul li {
-    line-height: 19px;
+    line-height: 13px;
+    display: inline-block;
+}
+
+.examples .see-code {
+    display: block;
+    color: #89859D;
+    font-size: 11px;
+    padding: 5px;
 }
 
 .examples .screenshot-link {
