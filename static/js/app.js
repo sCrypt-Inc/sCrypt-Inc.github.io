@@ -6,7 +6,7 @@ function didClickBuild(link) {
 
     if (!img) { return false }
 
-    const filepath = "/static/img/code/" + img;
+    const filepath = "static/img/code/" + img;
 
     const imageNode = document.querySelector(".examples img.screenshot");
     const screenshotLink = document.querySelector(".examples .screenshot-link");
