@@ -88,7 +88,6 @@ h6 {
 
 .cta {
     text-align: center;
-    margin: 100px 0;
 }
 
 .cta .button {
@@ -175,10 +174,20 @@ h6 {
 .about {
     background: #F8F7FD;
     max-width: 600px;
-    margin: 120px auto;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 34px 0px rgba(0, 0, 0, 0.1);
+}
+
+.about,
+.examples,
+.learn,
+.downloads {
+    margin: 120px auto;
+}
+
+.cta {
+    margin: 100px 0;
 }
 
 .about p {
@@ -189,7 +198,6 @@ h6 {
 .examples { 
     text-align: center;
     position: relative;
-    margin: 120px auto;
 }
 
 .examples .controller { 
@@ -211,7 +219,6 @@ h6 {
 .examples .wrapper {
     max-height: 400px;
     overflow: hidden;
-    /*border-bottom: 1px solid lightgrey;*/
     background: url("/static/img/divider.png") no-repeat bottom center;
 }
 
@@ -260,6 +267,72 @@ h6 {
     text-decoration: underline;
 }
 
+.downloads .columns {
+    margin: 10px 0;
+}
+
+.downloads .wrapper {
+    max-width: 350px;
+    margin: 5px auto;
+    background: #F8F7FD;
+    border-radius: 10px;
+    vertical-align: middle;
+    padding: 15px 18px;
+    box-shadow: 0px 0px 34px 0px rgba(0, 0, 0, 0.1);
+}
+
+.downloads h4 {
+    color: #3F385D;
+    font-size: 25px;
+}
+
+.downloads h5 {
+    color: rgba(63, 56, 93, 0.63);
+    font-size: 15px;
+}
+
+.downloads img {
+    margin: 5px 0;
+}
+
+.downloads .content {
+    margin: 0px;
+    padding: 0px;
+}
+
+.downloads ul {
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: 5px;
+    margin-left: 19px;
+}
+
+.downloads li {
+    color: rgba(63, 56, 93, 0.69);
+    font-size: 16px;
+    line-height: 23px;
+}
+
+.downloads .button {
+    width: 100%;
+    border-radius: 13px;
+    background: #382A5C;
+    color: white;
+    margin-top: 5px;
+    height: 33px;
+    font-size: 15px;
+}
+
+.learn .wrapper {
+    max-width: 720px;
+    margin: 10px auto;
+    background: #F8F7FD;
+    border-radius: 10px;
+    vertical-align: middle;
+    padding: 21px 18px;
+    box-shadow: 0px 0px 34px 0px rgba(0, 0, 0, 0.1);
+}
+
 @media(min-width: 1024px) {
 
     .widgets {
@@ -289,6 +362,15 @@ h6 {
     .examples .wrapper img {
         margin-top: -145px;
     }
+
+    .downloads .wrapper.desktop {
+        float: right;
+    }
+
+    .downloads .wrapper.cloud {
+        float: left;
+    }
+
 }
 
 @media(max-width: 1024px) {
