@@ -219,7 +219,7 @@ h6 {
 .examples .wrapper {
     max-height: 400px;
     overflow: hidden;
-    background: url("static/img/divider.png") no-repeat bottom center;
+    background: url("../img/divider.png") no-repeat bottom center;
 }
 
 .examples .wrapper img {
