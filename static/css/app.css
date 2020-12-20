@@ -27,7 +27,7 @@ h6 {
 }
 
 .header {
-    background: #382A5D url("/static/img/header.png") no-repeat bottom left;
+    background: #382A5D url("../img/header.png") no-repeat bottom left;
     height: 600px;
     padding: 10px;
 }
@@ -42,7 +42,7 @@ h6 {
 }
 
 .code-demo {
-    background: url("/static/img/code-sample1.png") no-repeat;
+    background: url("../img/code-sample1.png") no-repeat;
     height: 629px;
     right: 0px;
     top: -450px;
@@ -219,7 +219,7 @@ h6 {
 .examples .wrapper {
     max-height: 400px;
     overflow: hidden;
-    background: url("/static/img/divider.png") no-repeat bottom center;
+    background: url("static/img/divider.png") no-repeat bottom center;
 }
 
 .examples .wrapper img {
