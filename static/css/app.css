@@ -187,6 +187,23 @@ h6 {
 
 .examples { 
     text-align: center;
+    position: relative;
+}
+
+.examples .controller { 
+    width: 100px;
+    height: 100px;
+    top: 250px;
+    position: absolute;
+    z-index: 10;
+}
+
+.examples .controller.prev { 
+    left: 0px;
+}
+
+.examples .controller.next { 
+    right: 0px;
 }
 
 .examples .wrapper {
@@ -198,27 +215,34 @@ h6 {
 .examples .wrapper img {
     margin-top: -70px;
     max-width: 90%;
-    z-index: 0;
-    pointer-events: none;
+    z-index: 1;
 }
 
 .examples ul {
     text-align: center;
     max-width: 600px;
     margin: 15px auto;
+    display: block;
 }
 
 .examples ul li {
-    line-height: 14px;
-    display: inline-block;
+    line-height: 19px;
+}
+
+.examples .screenshot-link {
+    display: block;
+    z-index: 1;
+    position: relative;
 }
 
 .examples ul li a {
+    position: relative;
     color: #89859D;
     font-size: 14px;
     float: left;
-    margin: 3px 20px;
-    z-index: 5;
+    padding: 5px 20px;
+    z-index: 99;
+    display: inline-block;
 }
 
 .examples ul li a.active {
@@ -316,6 +340,19 @@ h6 {
     .examples .wrapper img {
         margin-top: -100px;
     }
+
+    .examples .controller img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .examples .controller.prev { 
+        left: -20px;
+    }
+
+    .examples .controller.next { 
+        right: -20px;
+    }
 }
 
 
@@ -323,6 +360,19 @@ h6 {
     .examples .wrapper img {
         margin-top: -80px;
     }
+
+    .examples .controller {
+        top: 300px;
+    }
+
+    .examples .controller.prev { 
+        left: -30px;
+    }
+
+    .examples .controller.next { 
+        right: -30px;
+    }
+
 }
 
 @media(max-width: 450px) {
@@ -337,6 +387,45 @@ h6 {
     .code-demo-mobile {
         margin-top: 40px;
         transform: scale(1.5);
+    }
+
+    .examples .wrapper img {
+        margin-top: -50px;
+    }
+
+    .examples .controller {
+        top: 350px;
+    }
+
+    .examples .controller img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .examples .controller.prev { 
+        left: -40px;
+    }
+
+    .examples .controller.next { 
+        right: -40px;
+    }
+}
+
+@media(max-width: 319px) {
+
+    .examples ul li a {
+        display: block;
+        float: none;
+        width: 100%;
+    }
+
+    .examples .controller {
+        display: none;
+    }
+
+    .examples .wrapper {
+        border: none;
+        max-height: none;
     }
 
 }
