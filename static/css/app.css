@@ -161,14 +161,8 @@ h6 {
 .widget h3 {
     color: #3F385D;
     font-size: 29px;
-    line-height: 26px;
+    line-height: 33px;
     float: left;
-}
-
-.widget h3 span {
-    display: block;
-    color: rgba(63, 56, 94, .63);
-    font-size: 15px;
 }
 
 .about {
@@ -187,7 +181,7 @@ h6 {
 }
 
 .cta {
-    margin: 100px 0;
+    margin: 80px 0;
 }
 
 .about p {
@@ -341,8 +335,11 @@ h6 {
     color: #3F385D;
 }
 
-.learn .no-bullet {
+.no-bullet {
     list-style: none;
+}
+
+.learn .no-bullet {
     font-size: 13px;
 }
 
