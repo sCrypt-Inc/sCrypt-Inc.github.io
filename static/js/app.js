@@ -48,6 +48,7 @@ function getActiveExampleIndex() {
 function didClickNextBuild() {
     const num = getNumExamples() - 1;
     const idx = getActiveExampleIndex();
+    if (idx === -1) { return }
     if (idx >= num) {
         didClickBuild($(".examples .example").get(0));
     } else {
@@ -58,6 +59,7 @@ function didClickNextBuild() {
 function didClickPreviousBuild() {
     const num = getNumExamples() - 1;
     const idx = getActiveExampleIndex();
+    if (idx === -1) { return }
     if (idx <= 0) {
         didClickBuild($(".examples .example").get(num));
     } else {

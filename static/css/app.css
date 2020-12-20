@@ -325,12 +325,74 @@ h6 {
 
 .learn .wrapper {
     max-width: 720px;
-    margin: 10px auto;
+    margin: 15px auto;
     background: #F8F7FD;
     border-radius: 10px;
     vertical-align: middle;
-    padding: 21px 18px;
+    padding: 5px 18px 20px 18px;
     box-shadow: 0px 0px 34px 0px rgba(0, 0, 0, 0.1);
+}
+
+.learn li {
+    line-height: 32px;
+}
+
+.learn a {
+    color: #3F385D;
+}
+
+.learn .no-bullet {
+    list-style: none;
+    font-size: 13px;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+}
+
+.footer ul {
+    display: inline-block;
+}
+
+.footer ul li {
+    float: left;
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.footer ul li a {
+    padding: 10px;
+    display: inline-block;
+}
+
+.footer p {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.navigation {
+    float: right;
+    display: inline-block;
+    margin-top: 14px;
+    margin-right: 10px;
+}
+
+.navigation li {
+    float: left;
+    margin-left: 22px;
+    display: inline-block;
+}
+
+.navigation a {
+    color: #F9F9F9;
+    font-size: 14px;
+    padding: 5px;
+    display: inline-block;
+}
+
+.nowrap {
+    white-space: nowrap;
 }
 
 @media(min-width: 1024px) {
@@ -365,10 +427,12 @@ h6 {
 
     .downloads .wrapper.desktop {
         float: right;
+        margin-right: 10px;
     }
 
     .downloads .wrapper.cloud {
         float: left;
+        margin-left: 10px;
     }
 
 }
@@ -377,6 +441,7 @@ h6 {
     .examples .wrapper img {
         margin-top: -145px;
     }
+
 }
 
 @media(max-width: 915px) {
@@ -466,6 +531,9 @@ h6 {
         right: -30px;
     }
 
+    .navigation .learn-link {
+        display: none;
+    }
 }
 
 @media(max-width: 450px) {
@@ -484,6 +552,10 @@ h6 {
 
     .examples .wrapper img {
         margin-top: -50px;
+    }
+
+    .navigation .download-link {
+        display: none;
     }
 
     .examples .controller {
@@ -521,4 +593,7 @@ h6 {
         max-height: none;
     }
 
+    .navigation {
+        margin-right: 0px;
+    }
 }
