@@ -224,7 +224,7 @@ h6 {
 
 .examples ul {
     text-align: center;
-    max-width: 600px;
+    max-width: 650px;
     margin: 15px auto;
     display: block;
 }
@@ -390,6 +390,11 @@ h6 {
 
 .nowrap {
     white-space: nowrap;
+}
+
+.language-icon {
+    margin-top: 3px;
+    width: 22px;
 }
 
 @media(min-width: 1024px) {
@@ -590,7 +595,18 @@ h6 {
         max-height: none;
     }
 
+    .header .logo {
+        margin-left: 5px;
+        margin-top: 0px;
+        width: 100px;
+    }
+
     .navigation {
-        margin-right: 0px;
+        margin: 0 auto;
+        display: inline-block;
+    }
+
+    .navigation li {
+        margin: 0 auto;
     }
 }
