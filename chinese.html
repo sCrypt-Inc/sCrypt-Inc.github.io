@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>sCrypt — A High Level Smart Contract Language for Bitcoin SV</title>
+    <link rel="stylesheet" href="static/css/bulma.min.css">
+    <link rel="stylesheet" href="static/css/app.css?cb=3">
+
+    <meta name="description" content="A high-level smart contract language for Bitcoin SV"/>
+    <link rel="canonical" href="https://www.scrypt.io" />
+    <meta property="og:title" content="sCrypt | Bitcoin SV"/>
+    <meta property="og:description" content="A high-level smart contract language for Bitcoin SV" />
+    <meta property="og:image" content="https://scrypt.io/static/img/screenshot.png" />
+    <meta property="og:image:width" content="1920"/>
+    <meta property="og:image:height" content="1080"/>
+    <meta property="og:url" content="http://www.scrypt.io"/>
+    <meta property="og:site_name" content="scrypt"/>
+    <meta property="og:type" content="website"/>
+  </head>
+  <body>
+    <div class="container">
+
+      <div class="site-wrapper">
+        <div class="header">
+
+          <div class="top-bar">
+            <a href="/"><img src="static/img/scrypt.png" alt="sCrypt" class="logo" /></a>
+
+            <ul class="navigation">
+              <li class="learn-link"><a href="#learn">Learn</a></li>
+              <li><a href="https://scryptdoc.readthedocs.io/en/latest/" target="_blank">Documentation</a></li>
+              <li class="download-link"><a href="#download">Download</a></li>
+              <li class="language-link"><a href="/">
+                  <img src="/static/img/english.svg" alt="sCrypt English Version" class="language-icon" />
+                </a></li>
+            </ul>
+
+            <div class="clear"></div>
+          </div>
+
+          <h1 class="title">
+            Smart Contracts for <span class="nowrap">Bitcoin SV</span>
+          </h1>
+          <p class="subtitle">
+            A High-Level Smart Contract Language
+          </p>
+
+          <img src="static/img/code-sample1.png" alt="sCrypt Demo Contract" class="code-demo-mobile" />
+
+        </div><!-- .header -->
+
+        <div class="content-wrapper">
+          <div class="columns">
+            <p class="subtitle">Smart Contracts using the original Bitcoin protocol</p>
+            <div class="code-demo"></div>
+          </div>
+          <div class="clear"></div>
+          <div class="columns widgets">
+            <div class="column is-4">
+              <div class="widget">
+                <h3>Scalable</h3>
+                <img src="static/img/up.svg" class="icon" />
+                <div class="clear"></div>
+              </div>
+            </div>
+            <div class="column is-4">
+              <div class="widget">
+                <h3>Cheap</h3>
+                <img src="static/img/cent.svg" class="icon" />
+                <div class="clear"></div>
+              </div>
+            </div>
+            <div class="column is-4">
+              <div class="widget">
+                <h3>Secure</h3>
+                <img src="static/img/lock.svg" class="icon" />
+                <div class="clear"></div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="cta">
+            <h3 class="title">Write Bitcoin smart contracts in a modern <span class="no-wrap">high-level</span> programming language</h3>
+            <h4 class="small">No Bitcoin script knowledge required</h4>
+            <a href="https://scryptdoc.readthedocs.io/en/latest/" class="button is-large">
+              <img src="static/img/books.svg" />
+              Read Documentation
+            </a>
+          </div>
+
+          <div class="about">
+            <div class="columns is-mobile">
+              <div class="column is-2">
+                <img src="static/img/logo-small.png" alt="sCrypt" />
+              </div>
+              <div class="column">
+                <p>sCrypt is a high-level smart contract language for <span class="nowrap">Bitcoin SV</span>.</p>
+
+                <p>Bitcoin supports smart contracts with its Forth-like stack-based Script language, but writing smart contracts in native Script is cumbersome and error-prone.</p>
+
+                <p>sCrypt is designed to facilitate writing error-free complex smart contracts running on-chain.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="examples">
+            <h3 class="title">Build Smart Contracts on Bitcoin</h3>
+            <div class="wrapper">
+              <ul>
+                <li><a href="https://github.com/sCrypt-Inc/boilerplate/blob/master/contracts/tictactoe.scrypt" data-img="code-tictactoe.png" class="example active" onClick="return didClickBuild(this)">Tic Tac Toe</a></li>
+                <li><a class="example" href="https://github.com/sCrypt-Inc/boilerplate/blob/master/contracts/conwaygol.scrypt" data-img="code-gameoflife.png" onClick="return didClickBuild(this)">Conway's Game of Life</a></li>
+                <li><a class="example" href="https://github.com/sCrypt-Inc/boilerplate/blob/master/contracts/nonFungibleToken.scrypt" data-img="code-nft.png" onClick="return didClickBuild(this)">NFT</a></li>
+                <li><a class="example" href="https://github.com/sCrypt-Inc/boilerplate/blob/master/contracts/rps.scrypt" data-img="code-rockpapersissors.png" onClick="return didClickBuild(this)">Rock Paper Sissors</a></li>
+                <li><a class="example" href="https://github.com/sCrypt-Inc/boilerplate/blob/master/contracts/faucet.scrypt" data-img="code-faucet.png" onClick="return didClickBuild(this)">Faucet</a></li>
+                <li><a class="example" href="https://github.com/sCrypt-Inc/boilerplate/blob/master/contracts/token.scrypt" data-img="code-token.png" onClick="return didClickBuild(this)">Token</a></li>
+                <li><a class="example" href="https://github.com/sCrypt-Inc/boilerplate/blob/master/contracts/tokenSwap.scrypt" data-img="code-tokenswap.png" onClick="return didClickBuild(this)">Token Swap</a></li>
+                <li><a class="example" href="https://github.com/sCrypt-Inc/boilerplate/blob/master/contracts/tokenSale.scrypt" data-img="code-tokensale.png" onClick="return didClickBuild(this)">Token Sale</a></li>
+                <li><a class="example" href="https://github.com/sCrypt-Inc/boilerplate/blob/master/contracts/spvToken.scrypt" data-img="code-spvtoken.png" onClick="return didClickBuild(this)">SPV Token</a></li>
+                <li><a href="https://github.com/sCrypt-Inc/boilerplate/tree/master/contracts" target="_blank">and more</a></li>
+                <li class="clear"></li>
+              </ul>
+              <a href="javascript:didClickPreviousBuild()" class="controller prev"><img src="static/img/prev.png" /></a>
+              <a href="javascript:didClickNextBuild()" class="controller next"><img src="static/img/next.png" /></a>
+              <a href="https://github.com/sCrypt-Inc/boilerplate/blob/master/contracts/tictactoe.scrypt" target="_blank" class="screenshot-link">
+                <img class="screenshot" src="static/img/code/code-tictactoe.png" />
+              </a>
+
+            </div>
+            <a target="_blank" href="https://github.com/sCrypt-Inc/boilerplate/blob/master/contracts/tictactoe.scrypt" class="see-code">See Tic Tac Toe code</a>
+          </div>
+
+          <div class="downloads" id="download">
+            <h3 class="title">Professional Development Environments</h3>
+
+            <div class="columns">
+              <div class="column">
+                <div class="desktop wrapper">
+                  <h4>Desktop IDE</h4>
+                  <h5>sCrypt Extension for Visual Studio Code</h5>
+                  <a href="https://marketplace.visualstudio.com/items?itemName=bsv-scrypt.sCrypt">
+                    <img src="static/img/desktop-ide.png" alt="sCrypt Desktop IDE" />
+                  </a>
+                  <div class="content">
+                    <ul>
+                      <li>Intellisense</li>
+                      <li>Compiler</li>
+                      <li>Debugger</li>
+                      <li>REPL</li>
+                      <li>Testing framework</li>
+                    </ul>
+                  </div>
+                  <a class="button" href="https://marketplace.visualstudio.com/items?itemName=bsv-scrypt.sCrypt">Download Desktop IDE</a>
+                </div>
+              </div>
+              <div class="column">
+                <div class="cloud wrapper">
+                  <h4>Cloud IDE</h4>
+                  <h5>No installation required</h5>
+                  <a href="https://scrypt.studio/">
+                    <img src="static/img/cloud-ide.png" alt="sCrypt Cloud IDE" />
+                  </a>
+                  <div class="content">
+                    <ul>
+                      <li>A playground to quickly try sCrypt</li>
+                      <li>Compiler</li>
+                      <li>Debugger</li>
+                      <li>Native script support</li>
+                      <li class="no-bullet">&nbsp;</li>
+                    </ul>
+                  </div>
+                  <a class="button" href="https://scrypt.studio/">Use Cloud IDE</a>
+                </div>
+              </div>
+              <div class="clear"></div>
+            </div>
+          </div>
+
+
+          <div class="learn" id="learn">
+            <h3 class="title">Learn sCrypt by Example</h3>
+            <div class="wrapper">
+              <div class="content">
+                <ol>
+
+
+                  <li><a target="_blank" href="https://xiaohuiliu.medium.com/introduction-to-bitcoin-smart-contracts-9c0ea37dc757">Introduction to Bitcoin Smart Contracts</a></li>
+                  <li><a target="_blank" href="https://xiaohuiliu.medium.com/a-step-by-step-guide-to-developing-bitcoin-smart-contracts-e43f00f42f05">A Step-by-Step Guide to Developing Bitcoin Smart Contracts</a></li>
+                  <li><a target="_blank" href="https://medium.com/coinmonks/stateful-smart-contracts-on-bitcoin-sv-c24f83a0f783">Stateful Smart Contracts on Bitcoin SV</a></li>
+                  <li><a target="_blank" href="https://xiaohuiliu.medium.com/peer-to-peer-tokens-6508986d9593">Peer-to-peer Tokens</a></li>
+                  <li><a target="_blank" href="https://xiaohuiliu.medium.com/non-fungible-tokens-on-bitcoin-sv-4575368f46a">Non-Fungible Tokens on Bitcoin SV</a></li>
+                  <li><a target="_blank" href="https://xiaohuiliu.medium.com/atomic-swap-on-bitcoin-sv-abc28e836cd5">Atomic Swap on Bitcoin SV</a></li>
+                  <li><a target="_blank" href="https://medium.com/coinmonks/access-external-data-from-bitcoin-smart-contracts-2ecdc7448c43">Access External Data from Bitcoin Smart Contracts</a></li>
+                  <li><a target="_blank" href="https://xiaohuiliu.medium.com/tic-tac-toe-on-bitcoin-sv-5acdf5bd676d">Tic-tac-toe on Bitcoin SV</a></li>
+                  <li><a target="_blank" href="https://xiaohuiliu.medium.com/scalable-state-storage-in-bsv-smart-contracts-60f9aeb3b1f">Scalable State Storage in BSV Smart Contracts</a></li>
+                  <li><a target="_blank" href="https://xiaohuiliu.medium.com/how-to-scale-ethereum-today-9bbaece3fb2e">How to Scale Ethereum Today?</a></li>
+                  <li class="no-bullet"><a target="_blank" href="https://xiaohuiliu.medium.com/">Read More</a></li>
+
+                </ol>
+              </div>
+            </div>
+          </div>
+
+
+        </div><!-- .content -->
+
+        <div class="footer">
+          <ul>
+            <li><a title="Email sCrypt" target="_blank" href="mailto:support@scrypt.io"><img src="static/img/email.png" alt="Email sCrypt" /></a></li>
+            <li><a title="sCrypt Medium" target="_blank" href="https://medium.com/@xiaohuiliu"><img src="static/img/medium.png" alt="sCrypt Medium" /></a></li>
+            <li><a title="sCrypt GitHub" target="_blank" href="https://github.com/sCrypt-Inc"><img src="static/img/github.png" alt="sCrypt GitHub" /></a></li>
+            <li><a title="sCrypt Telegram" target="_blank" href="https://t.me/joinchat/GwaRAxKT16JjXyHt5PuhHw"><img src="static/img/telegram.png" alt="sCrypt Telegram" /></a></li>
+            <li><a title="sCrypt Slack" target="_blank" href="https://join.slack.com/t/scryptworkspace/shared_invite/enQtNzQ1OTMyNDk1ODU3LTJmYjE5MGNmNDZhYmYxZWM4ZGY2MTczM2NiNTIxYmFhNTVjNjE5MGYwY2UwNDYxMTQyNGU2NmFkNTY5MmI1MWM"><img src="static/img/slack.png" alt="sCrypt Slack" /></a></li>
+            <li><a title="sCrypt Twitter" target="_blank" href="https://twitter.com/sinoTrinity"><img src="static/img/twitter.png" alt="sCrypt Twitter" /></a></li>
+            <li><a title="sCrypt WeChat" target="_blank" href="static/img/wechat-qrcode.jpg"><img src="static/img/wechat.png" alt="sCrypt WeChat" /></a></li>
+          </ul>
+          <div class="clear"></div>
+          <p>&copy; Copyright <script>document.write(new Date().getFullYear())</script>, sCrypt Inc</p>
+
+        </div><!-- .footer-->
+
+      </div><!-- .site-wrapper -->
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+    <script src="static/js/app.js?cb=1"></script>
+  </body>
+</html>
