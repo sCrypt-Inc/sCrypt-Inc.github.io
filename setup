@@ -23,7 +23,7 @@ if [ $DISPLAY_HELP = 1 ]; then
     echo "Command options:"
     echo ""
     echo "-h Print help."
-    echo "-v Display compiler version."
+    echo "-v Install specific version compiler."
     echo "-f Skip all prompts."
     echo "-u Uninstall sCrypt."
     exit 0
