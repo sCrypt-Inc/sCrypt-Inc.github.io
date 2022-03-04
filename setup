@@ -98,8 +98,8 @@ fi
 
 # Download and install the compiler.
 DL_URL="https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases/download/${GITHUB_TAG}/scryptc-${COMPILER_VERSION}-${URL_POSTFIX}"
-curl -L -J $DL_URL -o $INSTALL_DIR/$BIN_NAME
-chmod +x $INSTALL_DIR/$BIN_NAME
+curl -L -J $DL_URL -o $INSTALL_DIR/$BIN_NAME || exit 4
+chmod +x $INSTALL_DIR/$BIN_NAME || exit 5
 
 echo
 echo "The sCrypt compiler was successfully installed."
