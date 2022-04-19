@@ -176,6 +176,7 @@ h6 {
 .about,
 .examples,
 .learn,
+.faucet,
 .downloads {
     margin: 120px auto;
 }
@@ -341,6 +342,36 @@ h6 {
 
 .learn .no-bullet {
     font-size: 13px;
+}
+
+.fa {
+    font-size: 13px;
+}
+
+.faucet .wrapper {
+    max-width: 720px;
+    margin: 15px auto;
+    background: #F8F7FD;
+    border-radius: 10px;
+    vertical-align: middle;
+    padding: 20px 20px 20px 20px;
+    box-shadow: 0px 0px 34px 0px rgba(0, 0, 0, 0.1);
+}
+
+.address label {
+    float: none; /* if you had floats before? otherwise inline-block will behave differently */
+    display: inline-block;
+    vertical-align: middle;
+    border: none;
+    height: 32px;
+    
+    padding-left: 1em;
+    padding-right: 0em;
+}
+
+.address input {
+ 
+    width: 580px;
 }
 
 .footer {

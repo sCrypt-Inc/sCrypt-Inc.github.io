@@ -215,6 +215,103 @@
           </div>
 
 
+          <div class="faucet" id="faucet">
+            <h3 class="title">Get BSV from faucet</h3>
+            <div class="wrapper" >
+              <div class="content" id="faucetcontent">
+                <div class="address">
+                    <input type="text" class="input" placeholder="Recipient Address" id="address-input" />
+                    <button id="getbsv" class="button">Get BSV</button>
+                </div>
+              </div>
+            </div>
+
+            <script>
+
+            async function postData(url = '', data = {}) {
+              // Default options are marked with *
+              const response = await fetch(url, {
+                method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                mode: 'cors', // no-cors, *cors, same-origin
+                cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                credentials: 'same-origin', // include, *same-origin, omit
+                headers: {
+                  'Content-Type': 'application/json'
+                  // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                redirect: 'follow', // manual, *follow, error
+                referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+                body: JSON.stringify(data) // body data type must match "Content-Type" header
+              });
+              return response.json(); // parses JSON response into native JavaScript objects
+            }
+
+            function createSuccessMessage(txid = '') {
+              window.document.getElementById('faucetcontent').insertAdjacentHTML('afterend', `<article class="message is-primary">
+                <div class="message-header">
+                  <p>Success</p>
+                  <button class="delete" aria-label="delete" onclick='onDelete(this)'></button>
+                </div>
+                <div class="message-body">
+                  Get BSV from faucet successfully. 
+                  <strong>TXID</strong>: <a href="https://test.whatsonchain.com/tx/${txid}" target="_blank">${txid}</a>
+                </div>
+              </article>`)
+            }
+
+            function createCooldownMessage(address = '') {
+              window.document.getElementById('faucetcontent').insertAdjacentHTML('afterend', `<article class="message is-warning">
+                <div class="message-header">
+                  <p>Warning</p>
+                  <button class="delete" aria-label="delete" onclick='onDelete(this)'></button>
+                </div>
+                <div class="message-body">
+                  Address ${address} still in cooldown.
+                </div>
+              </article>`)
+            }
+
+            function createErrorMessage(error = '') {
+              window.document.getElementById('faucetcontent').insertAdjacentHTML('afterend', `<article class="message is-danger">
+                <div class="message-header">
+                  <p>Error</p>
+                  <button class="delete" aria-label="delete" onclick='onDelete(this)'></button>
+                </div>
+                <div class="message-body">
+                  ${error}
+                </div>
+              </article>`)
+            }
+
+            function onDelete(button) {
+              const article = button.parentNode.parentNode;
+              const wrapper = window.document.querySelector('.faucet .wrapper');
+              if(wrapper) {
+                wrapper.removeChild(article)
+              }
+            }
+
+
+            window.document.getElementById('getbsv').addEventListener('click', (e) => {
+              const address = window.document.getElementById('address-input').value;
+              if(typeof address === 'string' && address !== '') {
+                postData('https://witnessonchain.com/v1/faucet/tbsv', { address: address })
+                .then(data => {
+                  if(data.code  === 0) {
+                    createSuccessMessage(data.txid)
+                  } else if(data.code === 20) {
+                    createCooldownMessage(address);
+                  } else {
+                    createErrorMessage(data.message)
+                  }
+                });
+              }              
+            })
+
+            </script>
+
+          </div>
+
         </div><!-- .content -->
 
         <div class="footer">
