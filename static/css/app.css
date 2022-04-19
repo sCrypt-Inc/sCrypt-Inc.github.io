@@ -336,6 +336,10 @@ h6 {
     color: #3F385D;
 }
 
+.learn a:hover {
+    color: rgb(25, 10, 188);
+}
+
 .no-bullet {
     list-style: none;
 }
@@ -358,6 +362,23 @@ h6 {
     box-shadow: 0px 0px 34px 0px rgba(0, 0, 0, 0.1);
 }
 
+
+.faucet .wrapper .title {
+    margin: 0 auto;
+}
+
+.faucet li {
+    line-height: 32px;
+}
+
+.faucet a {
+    color: #3F385D;
+}
+
+.faucet a:hover {
+    color: rgb(25, 10, 188);
+}
+
 .address label {
     float: none; /* if you had floats before? otherwise inline-block will behave differently */
     display: inline-block;
@@ -371,7 +392,7 @@ h6 {
 
 .address input {
  
-    width: 580px;
+    width: 550px;
 }
 
 .footer {
@@ -588,6 +609,10 @@ h6 {
     }
 
     .navigation .download-link {
+        display: none;
+    }
+
+    .navigation .faucet-link {
         display: none;
     }
 

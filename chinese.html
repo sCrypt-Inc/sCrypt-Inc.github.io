@@ -33,6 +33,7 @@
               <li class="awesome-link"><a href="https://github.com/sCrypt-Inc/awesome-scrypt/blob/master/README_CN.md">开发者</a></li>
               <li><a href="https://scryptdoc.readthedocs.io/zh_CN/latest/" target="_blank">文档</a></li>
               <li class="download-link"><a href="#download">下载</a></li>
+              <li class="faucet-link"><a href="#faucet">水龙头</a></li>
               <li class="language-link"><a href="/">
                   <img src="/static/img/english.svg" alt="sCrypt English Version" class="language-icon" />
                 </a></li>
@@ -205,6 +206,115 @@
             </div>
           </div>
 
+          <div class="faucet" id="faucet">
+            <h3 class="title">从水龙头获取测试网BSV</h3>
+            <div class="wrapper" >
+              <div class="content" id="faucetcontent">
+                <div class="address">
+                    <input type="text" class="input" placeholder="接收地址" id="address-input" />
+                    <button id="getbsv" class="button">获取BSV</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="wrapper">
+              <h2 class="title">其他水龙头</h2>
+              <div class="content">
+                <ol>
+                  <li><a target="_blank" href="https://witnessonchain.com/faucet/tbsv">Witnessonchain 水龙头</a></li>
+                  <li><a target="_blank" href="https://faucet.bitcoincloud.net">BSV Testnet 水龙头</a></li>
+                  <li><a target="_blank" href="https://testnet.satoshisvision.network">Satoshis Vision 水龙头</a></li>
+                </ol>
+              </div>
+              <div >
+                捐赠地址: <span>mnai8LzKea5e3C9qgrBo7JHgpiEnHKMhwR</span>
+              </div>
+            </div>
+            <script>
+
+            async function postData(url = '', data = {}) {
+              // Default options are marked with *
+              const response = await fetch(url, {
+                method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                mode: 'cors', // no-cors, *cors, same-origin
+                cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                credentials: 'same-origin', // include, *same-origin, omit
+                headers: {
+                  'Content-Type': 'application/json'
+                  // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                redirect: 'follow', // manual, *follow, error
+                referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+                body: JSON.stringify(data) // body data type must match "Content-Type" header
+              });
+              return response.json(); // parses JSON response into native JavaScript objects
+            }
+
+            function createSuccessMessage(txid = '') {
+              window.document.getElementById('faucetcontent').insertAdjacentHTML('afterend', `<article class="message is-primary">
+                <div class="message-header">
+                  <p>成功</p>
+                  <button class="delete" aria-label="delete" onclick='onDelete(this)'></button>
+                </div>
+                <div class="message-body">
+                  获取成功. 
+                  <strong>交易</strong>: <a href="https://test.whatsonchain.com/tx/${txid}" target="_blank">${txid}</a>
+                </div>
+              </article>`)
+            }
+
+            function createCooldownMessage(address = '') {
+              window.document.getElementById('faucetcontent').insertAdjacentHTML('afterend', `<article class="message is-warning">
+                <div class="message-header">
+                  <p>提示</p>
+                  <button class="delete" aria-label="delete" onclick='onDelete(this)'></button>
+                </div>
+                <div class="message-body">
+                  地址 ${address} 仍在冷却中，请在10分钟后重试。
+                </div>
+              </article>`)
+            }
+
+            function createErrorMessage(error = '') {
+              window.document.getElementById('faucetcontent').insertAdjacentHTML('afterend', `<article class="message is-danger">
+                <div class="message-header">
+                  <p>失败</p>
+                  <button class="delete" aria-label="delete" onclick='onDelete(this)'></button>
+                </div>
+                <div class="message-body">
+                  ${error}
+                </div>
+              </article>`)
+            }
+
+            function onDelete(button) {
+              const article = button.parentNode.parentNode;
+              const wrapper = window.document.querySelector('.faucet .wrapper');
+              if(wrapper) {
+                wrapper.removeChild(article)
+              }
+            }
+
+
+            window.document.getElementById('getbsv').addEventListener('click', (e) => {
+              const address = window.document.getElementById('address-input').value;
+              if(typeof address === 'string' && address !== '') {
+                postData('https://witnessonchain.com/v1/faucet/tbsv', { address: address })
+                .then(data => {
+                  if(data.code  === 0) {
+                    createSuccessMessage(data.txid)
+                  } else if(data.code === 20) {
+                    createCooldownMessage(address);
+                  } else {
+                    createErrorMessage(data.message)
+                  }
+                });
+              }              
+            })
+
+            </script>
+
+          </div> <!-- .faucet -->
 
         </div><!-- .content -->
 
