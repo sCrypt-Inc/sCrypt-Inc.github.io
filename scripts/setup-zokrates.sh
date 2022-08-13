@@ -1,18 +1,18 @@
 #!/bin/sh
 
-COMPILER_VERSION=""
+ZOKRATES_VERSION=""
 GITHUB_OWNER="sCrypt-Inc"
-GITHUB_REPO="compiler_dist"
+GITHUB_REPO="zokrates"
 GLOB_INST_DIR="/usr/local/bin"
 LOCAL_INST_DIR="$HOME/.local/bin"
-BIN_NAME="scryptc"
+BIN_NAME="zokrates"
 SKIP_PROMPT=0
 DISPLAY_HELP=0
 UNINSTALL=0
 
 while getopts "v:fhu" c; do
     case $c in
-      v) COMPILER_VERSION="$OPTARG" ;;
+      v) ZOKRATES_VERSION="$OPTARG" ;;
       f) SKIP_PROMPT=1 ;;
       h) DISPLAY_HELP=1 ;;
       u) UNINSTALL=1 ;;
@@ -23,33 +23,28 @@ if [ $DISPLAY_HELP = 1 ]; then
     echo "Command options:"
     echo ""
     echo "-h Print help."
-    echo "-v Install specific version compiler."
+    echo "-v Version of ZoKrates to be installed."
     echo "-f Skip all prompts."
-    echo "-u Uninstall sCrypt."
+    echo "-u Uninstall ZoKrates."
     exit 0
 fi
 
-# If compiler version isn't explicitly specified, try to look up the latest stable rease on the web.
-if [ -z $COMPILER_VERSION ]; then
-    res=$(curl -s https://raw.githubusercontent.com/sCrypt-Inc/compiler_dist/master/downloadcompiler.sh | head -n 1) 
-    COMPILER_VERSION="$(echo $res | cut -d'=' -f2)" 
-fi
-GITHUB_TAG="v$COMPILER_VERSION"
+GITHUB_TAG="v$ZOKRATES_VERSION"
 
 is_user_root () { [ "$(id -u)" -eq 0 ]; }
 
 # Detect platform.
 UNAME=$(uname)
 if [ "$UNAME" = "Linux" -o "$UNAME" = "FreeBSD" ]; then
-    URL_POSTFIX="Linux"
+    URL_POSTFIX="zokrates-linux-x86_64.tar.gz"
 elif [ "$UNAME" = "Darwin" ]; then
-    URL_POSTFIX="macOS"
+    URL_POSTFIX="zokrates-macos-aarch64.tar.gz"
 else
     echo "OS type \"$UNAME\" not supported." && exit 1
 fi
 
-# URL to download from..
-DL_URL="https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases/download/${GITHUB_TAG}/scryptc-${COMPILER_VERSION}-${URL_POSTFIX}"
+# URL to download from.
+DL_URL="https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases/download/${GITHUB_TAG}/${URL_POSTFIX}"
 if [ $(curl -o /dev/null -s -w "%{http_code}\n" $DL_URL) = "404" ]; then
     echo  "Version not found: $GITHUB_TAG"
     exit 1
@@ -68,7 +63,7 @@ mkdir -p $INSTALL_DIR
 # Uninstallation procedure
 if [ $UNINSTALL = 1 ]; then
     if [ -f "$INSTALL_DIR/$BIN_NAME" ]; then
-        echo "You are about to uninstall the sCrypt compiler installed at: $INSTALL_DIR/$BIN_NAME"
+        echo "You are about to uninstall ZoKrates which is currently installed at: $INSTALL_DIR/$BIN_NAME"
         echo
         if [ $SKIP_PROMPT = 0 ]; then
             read -p "Proceed? [y/n] " continue < /dev/tty || exit 2
@@ -77,20 +72,20 @@ if [ $UNINSTALL = 1 ]; then
             fi
         fi
         rm $INSTALL_DIR/$BIN_NAME
-        echo "The sCrypt compiler was successfully uninstalled."
+        echo "ZoKrates was successfully uninstalled."
         exit 0
     else
-        echo "No compiler found."
+        echo "No installation found."
         exit 4
     fi
 fi
 
 # Installation procedure
-echo "You are about to download and install scryptc $GITHUB_TAG for $URL_POSTFIX."
+echo "You are about to download and install ZoKrates $GITHUB_TAG for $UNAME."
 echo
-echo "The compiler will be installed to $INSTALL_DIR/$BIN_NAME. Make sure, that the containing directory is in your PATH."
+echo "The binary will be installed to $INSTALL_DIR/$BIN_NAME. Make sure, that the containing directory is in your PATH."
 if [ -f "$INSTALL_DIR/$BIN_NAME" ]; then
-    echo "An existing compiler binary already exists in $INSTALL_DIR/$BIN_NAME. It will be overwritten."
+    echo "An existing ZoKrates binary already exists in $INSTALL_DIR/$BIN_NAME. It will be overwritten."
 fi
 echo
 if [ $SKIP_PROMPT = 0 ]; then
@@ -105,9 +100,11 @@ if [ -f "$INSTALL_DIR/$BIN_NAME" ]; then
     rm $INSTALL_DIR/$BIN_NAME
 fi
 
-# Download and install the compiler.
-curl -L -J $DL_URL -o $INSTALL_DIR/$BIN_NAME || exit 7
-chmod +x $INSTALL_DIR/$BIN_NAME || exit 8
+# Download and install ZoKrates.
+curl -L -J $DL_URL -o $INSTALL_DIR/$URL_POSTFIX || exit 7
+cd $INSTALL_DIR && tar -zxf $INSTALL_DIR/$URL_POSTFIX $BIN_NAME  || exit 8
+rm $INSTALL_DIR/$URL_POSTFIX || exit 9
+chmod +x $INSTALL_DIR/$BIN_NAME || exit 10
 
 echo
-echo "The sCrypt compiler was successfully installed."
+echo "ZoKrates ${GITHUB_TAG} was successfully installed."
