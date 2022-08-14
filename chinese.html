@@ -271,7 +271,7 @@
                   <button class="delete" aria-label="delete" onclick='onDelete(this)'></button>
                 </div>
                 <div class="message-body">
-                  地址 ${address} 仍在冷却中，请在10分钟后重试。
+                  地址 ${address} 仍在冷却中，一个地址一天最多可以取两次
                 </div>
               </article>`)
             }
@@ -300,7 +300,7 @@
             window.document.getElementById('getbsv').addEventListener('click', (e) => {
               const address = window.document.getElementById('address-input').value;
               if(typeof address === 'string' && address !== '') {
-                postData('https://witnessonchain.com/v1/faucet/tbsv', { address: address })
+                postData('https://witnessonchain.com/v1/faucet/tbsv', { address: address, channel: "scrypt.io" })
                 .then(data => {
                   if(data.code  === 0) {
                     createSuccessMessage(data.txid)
