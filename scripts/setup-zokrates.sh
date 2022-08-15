@@ -29,6 +29,11 @@ if [ $DISPLAY_HELP = 1 ]; then
     exit 0
 fi
 
+# If compiler version isn't explicitly specified, try to look up the latest stable rease on the web.
+if [ -z $ZOKRATES_VERSION ]; then
+    res=$(curl -s https://raw.githubusercontent.com/sCrypt-Inc/zokrates/main/zokrates_cli/Cargo.toml | grep "^version" ) 
+    ZOKRATES_VERSION=$(echo $res | cut -d'=' -f2 | sed -e "s/ //g" -e "s/\"//g")
+fi
 GITHUB_TAG="v$ZOKRATES_VERSION"
 
 is_user_root () { [ "$(id -u)" -eq 0 ]; }
