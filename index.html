@@ -281,7 +281,7 @@
                   <button class="delete" aria-label="delete" onclick='onDelete(this)'></button>
                 </div>
                 <div class="message-body">
-                  Address ${address} still in cooldown. Please try again in 10 minutes.
+                  Address ${address} still in cooldown. An address can be taken up to twice a day.
                 </div>
               </article>`)
             }
@@ -310,7 +310,7 @@
             window.document.getElementById('getbsv').addEventListener('click', (e) => {
               const address = window.document.getElementById('address-input').value;
               if(typeof address === 'string' && address !== '') {
-                postData('https://witnessonchain.com/v1/faucet/tbsv', { address: address })
+                postData('https://witnessonchain.com/v1/faucet/tbsv', { address: address, channel: "scrypt.io" })
                 .then(data => {
                   if(data.code  === 0) {
                     createSuccessMessage(data.txid)
