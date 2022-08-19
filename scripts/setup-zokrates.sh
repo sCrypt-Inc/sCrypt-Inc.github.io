@@ -121,7 +121,7 @@ SRC_ARCHIVE="zokrates-${ZOKRATES_VERSION}.tar.gz"
 STDLIB_PATH="zokrates-${ZOKRATES_VERSION}/zokrates_stdlib/stdlib"
 curl -L -J $DL_URL_SRC -o $RES_DIR/$SRC_ARCHIVE || exit 11
 cd $RES_DIR && tar -zxf $RES_DIR/$SRC_ARCHIVE $STDLIB_PATH || exit 12
-mv $RES_DIR/$STDLIB_PATH . || exit 13
+mv -f $RES_DIR/$STDLIB_PATH . || exit 13
 rm $RES_DIR/$SRC_ARCHIVE || exit 14
 rm -rf $RES_DIR/zokrates-${ZOKRATES_VERSION} || exit 15
 
