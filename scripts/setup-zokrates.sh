@@ -5,6 +5,7 @@ GITHUB_OWNER="sCrypt-Inc"
 GITHUB_REPO="zokrates"
 GLOB_INST_DIR="/usr/local/bin"
 LOCAL_INST_DIR="$HOME/.local/bin"
+RES_DIR="$HOME/.zokrates"
 BIN_NAME="zokrates"
 SKIP_PROMPT=0
 DISPLAY_HELP=0
@@ -54,6 +55,9 @@ if [ $(curl -o /dev/null -s -w "%{http_code}\n" $DL_URL) = "404" ]; then
     echo  "Version not found: $GITHUB_TAG"
     exit 1
 fi
+
+DL_URL_SRC="https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/archive/refs/tags/${GITHUB_TAG}.tar.gz"
+echo $DL_URL_SRC
 
 # Check if global or local install.
 if ! is_user_root; then
@@ -107,9 +111,19 @@ fi
 
 # Download and install ZoKrates.
 curl -L -J $DL_URL -o $INSTALL_DIR/$URL_POSTFIX || exit 7
-cd $INSTALL_DIR && tar -zxf $INSTALL_DIR/$URL_POSTFIX $BIN_NAME  || exit 8
+cd $INSTALL_DIR && tar -zxf $INSTALL_DIR/$URL_POSTFIX $BIN_NAME || exit 8
 rm $INSTALL_DIR/$URL_POSTFIX || exit 9
 chmod +x $INSTALL_DIR/$BIN_NAME || exit 10
+
+# Download source and extract ZoKrates stdlib.
+mkdir -p $RES_DIR
+SRC_ARCHIVE="zokrates-${ZOKRATES_VERSION}.tar.gz"
+STDLIB_PATH="zokrates-${ZOKRATES_VERSION}/zokrates_stdlib/stdlib"
+curl -L -J $DL_URL_SRC -o $RES_DIR/$SRC_ARCHIVE || exit 11
+cd $RES_DIR && tar -zxf $RES_DIR/$SRC_ARCHIVE $STDLIB_PATH || exit 12
+mv $RES_DIR/$STDLIB_PATH . || exit 13
+rm $RES_DIR/$SRC_ARCHIVE || exit 14
+rm -rf $RES_DIR/zokrates-${ZOKRATES_VERSION} || exit 15
 
 echo
 echo "ZoKrates ${GITHUB_TAG} was successfully installed."
