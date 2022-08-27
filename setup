@@ -31,8 +31,8 @@ fi
 
 # If compiler version isn't explicitly specified, try to look up the latest stable rease on the web.
 if [ -z $COMPILER_VERSION ]; then
-    res=$(curl -s https://raw.githubusercontent.com/sCrypt-Inc/compiler_dist/master/downloadcompiler.sh | head -n 1) 
-    COMPILER_VERSION="$(echo $res | cut -d'=' -f2)" 
+    res=$(curl -s https://api.github.com/repos/sCrypt-Inc/compiler_dist/releases/latest | grep "tag_name" ) 
+    COMPILER_VERSION=$(echo $res | cut -d'=' -f2 | sed -e "s/tag_name//g" -e "s/[\": ,v]//g")
 fi
 GITHUB_TAG="v$COMPILER_VERSION"
 

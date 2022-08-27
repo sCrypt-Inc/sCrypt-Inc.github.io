@@ -32,8 +32,8 @@ fi
 
 # If compiler version isn't explicitly specified, try to look up the latest stable rease on the web.
 if [ -z $ZOKRATES_VERSION ]; then
-    res=$(curl -s https://raw.githubusercontent.com/sCrypt-Inc/zokrates/main/zokrates_cli/Cargo.toml | grep "^version" ) 
-    ZOKRATES_VERSION=$(echo $res | cut -d'=' -f2 | sed -e "s/ //g" -e "s/\"//g")
+    res=$(curl -s https://api.github.com/repos/sCrypt-Inc/zokrates/releases/latest | grep "tag_name" ) 
+    ZOKRATES_VERSION=$(echo $res | cut -d'=' -f2 | sed -e "s/tag_name//g" -e "s/[\": ,v]//g")
 fi
 GITHUB_TAG="v$ZOKRATES_VERSION"
 
