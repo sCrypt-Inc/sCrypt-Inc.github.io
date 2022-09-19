@@ -44,7 +44,15 @@ UNAME=$(uname)
 if [ "$UNAME" = "Linux" -o "$UNAME" = "FreeBSD" ]; then
     URL_POSTFIX="zokrates-linux-x86_64.tar.gz"
 elif [ "$UNAME" = "Darwin" ]; then
-    URL_POSTFIX="zokrates-macos-aarch64.tar.gz"
+
+    MACOS_ARCHITECTURE=$(uname -m)
+    if [ "$MACOS_ARCHITECTURE" = "arm64" ]; then
+        URL_POSTFIX="zokrates-macos-aarch64.tar.gz"
+    elif [ "$MACOS_ARCHITECTURE" = "x86_64" ]; then
+        URL_POSTFIX="zokrates-macos-x86_64.tar.gz"
+    else 
+        echo "Darwin architecture \"$MACOS_ARCHITECTURE\" not supported." && exit 1
+    fi
 else
     echo "OS type \"$UNAME\" not supported." && exit 1
 fi
