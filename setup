@@ -40,13 +40,23 @@ is_user_root () { [ "$(id -u)" -eq 0 ]; }
 
 # Detect platform.
 UNAME=$(uname)
-if [ "$UNAME" = "Linux" -o "$UNAME" = "FreeBSD" ]; then
-    URL_POSTFIX="Linux"
+ARCH=$(uname -m)
+if [ "$UNAME" = "Linux" ]; then
+    if [ "$ARCH" = "x86_64" ]; then
+        URL_POSTFIX="${UNAME}-x86_64"
+    elif [ "$ARCH" = "aarch64" ]; then
+        URL_POSTFIX="${UNAME}-aarch64"
+    else
+        echo "Architecture \"$ARCH\" not supported on $UNAME." && exit 1
+    fi
 elif [ "$UNAME" = "Darwin" ]; then
-    URL_POSTFIX="macOS"
+    URL_POSTFIX="macOS-x86_64"
 else
     echo "OS type \"$UNAME\" not supported." && exit 1
 fi
+
+# You can use $URL_POSTFIX for your URL now.
+echo "URL Postfix: $URL_POSTFIX"
 
 # URL to download from..
 DL_URL="https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases/download/${GITHUB_TAG}/scryptc-${COMPILER_VERSION}-${URL_POSTFIX}"
